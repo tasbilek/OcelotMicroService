@@ -1,0 +1,31 @@
+{
+    "Routes":[
+        {
+            "DownstreamPathTemplate":"/todos/{everything}",
+            "DownstreamSchema":"http",
+            "DownstreamHostAndPorts":[
+                {
+                    "Host":"localhost",
+                    "Port":5001
+                }
+            ],
+            "UpstreamPathTemplate":"/api/todos/{everything}",
+            "UpstreamHttpMethod":["GET","POST","PUT","DELETE"]
+        },
+        {
+            "DownstreamPathTemplate":"/categories/{everything}",
+            "DownstreamSchema":"http",
+            "DownstreamHostAndPorts":[
+                {
+                    "Host":"localhost",
+                    "Port":5002
+                }
+            ],
+            "UpstreamPathTemplate":"/api/categories/{everything}",
+            "UpstreamHttpMethod":["GET","POST","PUT","DELETE"]
+        }
+    ],
+    "GlobalConfiguration":{
+        "BaseUrl":"http://localhost:5000"
+    }
+}
