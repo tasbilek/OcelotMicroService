@@ -13,14 +13,17 @@ This project demonstrates the implementation of an API Gateway using Ocelot in .
   - [Running Locally](#running-locally)
   - [Docker Setup](#docker-setup)
 - [Database Setup](#database-setup)
-- [Contributing](#contributing)
+  - [InMemory DB](#inmemory-db)
+  - [SQL Server](#sql-server)
+  - [CodeFirst with .NET CLI](#codefirst-with-dotnet-cli)
 - [License](#license)
 
 ---
 
 ## Overview
 
-This project uses **Ocelot** as an API Gateway to route API requests to various microservices. The project demonstrates how to set up an API Gateway in a microservices architecture and implement routing, load balancing, and API aggregation. For documentation : (https://ocelot.readthedocs.io/en/latest/)
+This project uses **Ocelot** as an API Gateway to route API requests to various microservices. It demonstrates how to set up an API Gateway in a microservices architecture, implementing routing, load balancing, and API aggregation.  
+For full documentation, visit: [Ocelot Documentation](https://ocelot.readthedocs.io/en/latest/).
 
 ### Ocelot API Gateway
 - **Routing**: Routes requests to backend services based on predefined routes in the `ocelot.json` configuration file.
@@ -63,7 +66,7 @@ To run this project, ensure you have the following installed on your machine:
 
    ```bash
    git clone https://github.com/tasbilek/OcelotMicroService.git
-   cd your-repo
+   cd OcelotMicroService
    ```
 
 2. Restore the dependencies:
@@ -152,6 +155,20 @@ This approach should work in environments where `host.docker.internal` is not re
 
 If you're running SQL Server locally, you can adjust the connection string to point to your local instance.
 
+---
+
+### CodeFirst with .NET CLI
+
+1. Create a migration to create the database schema from your models:
+
+```bash
+dotnet ef migrations add InitialCreate
+```
+2. Apply the migration to the database:
+
+```bash
+dotnet ef database update
+```
 ---
 
 ## License
